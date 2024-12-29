@@ -12,4 +12,6 @@ def receiver(receiver_host, receiver_port):
             break
         print(f"Received: {data.decode()}")
 
-receiver('localhost', 6766)
+local_host = '127.0.0.1'
+local_port = 6788
+receiver(local_host, local_port)

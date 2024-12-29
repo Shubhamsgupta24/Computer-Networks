@@ -13,6 +13,8 @@ while True:
     choice = input("Do you want to send data ? (y/n) ")
     if choice == 'y':
         msg = input("Enter the message you want to send : ")
-        sender([msg], 'localhost', 6766)
+        local_host = '127.0.0.1'
+        local_port = 6788
+        sender([msg], local_host,local_port)
     elif choice == 'n':
         break

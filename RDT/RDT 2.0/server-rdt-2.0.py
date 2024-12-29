@@ -1,10 +1,13 @@
 import socket
+from socket import *
 import random
 
+#The network bits can cause errors hence send an ACK or NACK to detect errors
+
 def server(port):
-    server_socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    server_socket = socket(AF_INET, SOCK_STREAM)
     server_socket.bind(('127.0.0.1', port))
-    server_socket.listen(1)  # Listen for incoming connections
+    server_socket.listen(1)  # Listen for incoming connections and can have maximum of 1 queued connection.
 
     print("Server is waiting for connections...")
 
@@ -25,4 +28,5 @@ def server(port):
                 connection.send(f'NAK'.encode())
 
 if __name__ == "__main__":
-    server(12345)  # Replace 12345 with your desired port
+    local_port = 7890
+    server(local_port)
